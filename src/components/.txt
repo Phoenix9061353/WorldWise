@@ -1,0 +1,33 @@
+* CSS Module
+- 在css module裡，盡量以className做style設計（用element selector設計的話，若之後要在別的file做特定改變就會很麻煩
+
+- 但在指定className底下的特定element都套用是可以的
+
+- 也可以在CSS module裡設定global用的className => :global(<.className>)
+ex. 
+.nav .active => 因為CSS module的關係，會在.active後加上特殊ID，導致失效
+.nav :global(.active) => 這樣就可以達到想要的效果
+
+
+* Nested Route
+-> 在Route裡面再放入另一個Route 
+ex. (/app/cities)
+<Route path='app' element={<AppLayout />}>
+    <Route path='cities' element={<p>Cities</p>} />
+</Route>
+
+-> 而在AppLayout裡可用<Outlet />來表示放進此route裡的子route，當子網址做更換時，便會顯示該指定網址所指向的組件（有點類似於children）
+
+
+* Index Route
+-> 在Route不打path，而是直接寫index
+-> 這樣在沒有Route符合當前的path時，此Index Route指向的組件便會作為default顯示
+ex. 
+<Route index element={<p>List of cities</p>} />
+
+
+* <Navigate />
+-> React 內建的東西；功能類似「重新導向」
+-> 用「to='<path>'」可導向該path所指定的URL
+-> 可搭配Index Route使用
+-> 記得放「replace」，以回復瀏覽器上一頁的功能
