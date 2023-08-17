@@ -6,7 +6,7 @@
 ## 學習項目
 
 - 使用 Vite 來創建 App
-- Routes(<Link/>, <NavLink/>, index route, nested route)
+- Routes(Link 與 NavLink, index route 與 nested route)
 - CSS Modules
 - useNavigate
 - Context API + useReducer
